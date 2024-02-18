@@ -1,0 +1,1 @@
+('t', 'The black and white animals live in the Atlantic, shaping ice shelves and traveling oceans.\xa0')

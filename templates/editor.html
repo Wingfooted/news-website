@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}L'Anthropologie{% endblock %}
+
+{% block content %}
+
+        <form class="editor-frame" id="content" method="POST" enctype="multipart/form-data">
+            <div class="article-data">
+                <input type="text" name="author" value="{{author}}" required>
+                <select id="category" name="category">
+                    <option value="Literature">Analysis</option>
+                    <option value="Opinion">Opinion</option>
+                    <option value="Culture">Culture</option>
+                    <option value="Literature">Literature</option>
+                    <option value="Markets">Markets</option>
+                    <option value="Philosophy">Philosophy</option>
+                </select>
+                <input type="file" name="thumbnail" id="thumbnail">
+            </div>
+
+            <main id="editor-contents"> 
+            <div class="article-title-wrapper">
+                <div class="article-title" id="article-title" contenteditable="true">Lorem Ipsum</div>
+                <input type="hidden" name="title" id="title-input" value="">
+                <script>
+                    const titleDiv = document.getElementById("article-title");
+                    const titleInput = document.getElementById("title-input");
+                    titleDiv.addEventListener ("input", function () {
+                        titleInput.value = titleDiv.textContent;
+                    }); 
+                </script>
+            </div>
+            <div class="summary-title-wrapper">
+                <div class="article-summary" id="article-summary" contenteditable="true">summary goes here</div>
+                <input type="hidden" name="summary" id="summary-input" value="">
+                <script>
+                    const summaryDiv = document.getElementById("article-summary");
+                    const summaryInput = document.getElementById("summary-input");
+                    summaryDiv.addEventListener ("input", function () {
+                        summaryInput.value = summaryDiv.textContent;
+                    }); 
+                </script>
+            </div>
+            <div id="editor-buttons">
+                <button type="button" onclick="addText()">Add Text</button>
+                <button type="button" onclick="addQuote()">Add Quote</button>
+                <button type="button" onclick="addSub()">Add Subheading</button>
+                <button type="button" onclick="addImg()">Add Image</button>
+                <button type="button" onclick="addTable()">Add Table</button>
+                <button type="submit">Save</button>
+            </div>
+            </main>
+            <input type="hidden" id="form-data" name="form-data" value="[]">
+        </form>
+        <script src="static/editor.js"></script>
+{% endblock %}

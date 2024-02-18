@@ -1,0 +1,4 @@
+('t', 'The black and white animals live in the Atlantic, shaping ice shelves and traveling oceans.\xa0')
+('i', 'static/articleimages/326868b7_1.png')
+('t', 'Those are Orcas')
+('q', 'Massive Wow factor')

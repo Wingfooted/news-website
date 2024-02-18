@@ -1,0 +1,3 @@
+('t', 'Paper Straws; a farce on humanity and a violation of the social code. Indeed, if the severity were not so great there would be a great deal of dark comedy in the blame game of climate politics currently going.\xa0')
+('t', 'Just as a fossil lobby peddling natural gas fails to sanitise the act of carbon consumption, the moral appeasement of our souls through ridding our lives one plastic bag and straw at a time fail to truly rid the moral pollutants left behind by that exact same fossil lobby. The move to shift responsibility to consume less plastic masks a broader issue of multinational oil magnates creating a problem and not atoning for its severity.')
+('q', "Read the full article on L'Anthropologie ...")

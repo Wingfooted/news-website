@@ -1,0 +1,84 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}L'Anthropologie{% endblock %}</title>
+</head>
+<body>
+    <header>
+
+        <div class="hs">
+            <div class="vs">
+                <div class="day">28</div>
+                <div class="month">Dec</div>
+                <div class=".">.</div>
+                <div class="year">2023</div>
+            </div>
+            <div class="logo">
+                <a href="/">L'Anthropologie</a>
+                
+            </div>
+            <div class="vs">
+                <a id="login" href="/login">Login</a>
+                <a id="login" href="/login">Subscribe</a>
+                <a id="login" href="/login">Contact</a>
+                <a id="login" href="/login">.</a>
+                <a id="login" href="/login">Australian Edition ®</a>
+                <a id="login" href="/login">Support</a>
+            </div>
+        </div>
+        <hr>
+        <div class="hs" id="categories">
+            <div class="category"><a href="/c/agriculture">Agriculture</a></div>
+            <div class="category"><a href="/c/mathematics">Analysis</a></div>
+            <div class="category"><a href="/c/foreign-policy">Foreign Policy</a></div>
+            <div class="category"><a href="/c/literature">Literature</a></div>
+            <div class="category"><a href="/c/mathematics">Opinion</a></div>
+        </div>
+        <hr>
+    </header>
+
+    <div id="dynamic-content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <br>
+        <hr>
+        <p style="font-size: 2vw;">&copy; L'Anthropologie</p>
+        <hr>
+        <div id="tri-hs" class="m-hs">
+            <div class="m-vs">
+                <p><b>Categories</b></p>
+                <p><a href="/c/agriculture">Agriculture</a></p>
+                <p><a href="/c/mathematics">Analysis</a></p>
+                <p><a href="/c/foreign-policy">Foreign Policy</a></p>
+                <p><a href="/c/literature">Literature</a></p>
+                <p><a href="/c/mathematics">Opinion</a></p>
+            </div>
+            <div class="m-vs">
+                <p><b>Corporate</b></p>
+                <p>Support</p>
+                <p><a href="/editor">Editor</a></p>
+                <p>Advertising</p>
+                <p>Contact</p>
+                <p><a href="/login">Login</a></p>
+                <p><a href="/maintenance">Admin</a></p>
+            </div>
+            <div class="m-vs">
+                <div class="hermes-nws">
+                    <form action="post">
+                        <div class="h-logo">HERMES</div>
+                        <div class="h-desc">Subscribe to the Hermes newsletter to hear about our latest publications</div>
+                        <input type="text" placeholder="LoremIpsum@gmail.com">
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+</body>
+</html>

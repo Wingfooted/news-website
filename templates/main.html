@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}L'Anthropologie{% endblock %}
+
+{% block content %}
+
+<div id="dynamic-main-content">
+    
+    <div class="m-hs">
+        <div class="m-vs" id="Latest">
+            <div class="column-name">Latest</div>
+            <hr>
+            {%for item in articles.latest%}
+                {% if item.status == 200 %}
+                <div class="c">
+                    <div class="c-t">
+                        <a href="/a/{{item.view.article_id}}">{{item.view.title}}</a>
+                    </div>
+                    {%if item.author.status == 200%}
+                    <div class="c-a">
+                        <a href="/author/{{item.author.name}}">{{item.author.name}}</a>
+                    </div>
+                    {%endif%}
+                    <div class="c-c" style="color: {{item.metadata.category_colour}}">
+                        <a href="/c/{{item.category}}">{{item.metadata.category}}</a>
+                    </div>
+                </div>
+                <hr>
+                {% endif %}
+            {%endfor%}
+        </div>
+        <div class="m-vs" id="Middle">
+            <div id="large-article" class="hs">
+                <div class="thumbnail-wrapper">
+                    <a href="/a/{{articles.featured[0].view.title}}">
+                        <img src="/{{articles.featured[0].view.thumbnail}}" alt="">
+                    </a>
+                    <div id="large-summary">
+                        <a href="/a/{{articles.featured[0].metadata.article_id}}">{{articles.featured[0].view.summary}}</a></div>
+                </div>
+                <div class="text-wrapper">
+                    <div id="large-title">
+                        <a href="/a/{{articles.featured[0].metadata.article_id}}">{{articles.featured[0].view.title}}</a>
+                    </div>
+                    <div><a style="color: {{articles.featured[0].metadata.category_colour}}" href="/c/{{articles.featured[0].metadata.category}}">  {{articles.featured[0].metadata.category}}</a> </div>
+                    {%if articles.featured[0].author.status ==200%}<div><a href="/author/{{articles.featured[0].author.name}}">{{articles.featured[0].author.name}}</a></div>{%endif%}
+                </div>
+            </div>
+            <hr>
+            <div class="m-hs" id="carousel">
+                {%for item in articles.carousel%}
+                    <div class="car-article-frame">
+                        <div class="img-wrapper">
+                            <a href="/a/{{item.view.article_id}}">
+                                <img src="/{{item.view.thumbnail}}" alt="">
+                            </a>
+                        </div>
+                        {%if item.author.status == 200%}
+                        <div class="c-a">
+                            <a href="/author/{{item.author.name}}">{{item.author.name}}</a>
+                        </div>
+                        {%endif%}
+                        <div class="c-author">
+                            <a href="/a/{{item.view.article_id}}">{{item.view.title}}</a>
+                        </div>
+
+                    </div>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="m-vs" id="Featured">
+            <div class="column-name">Featured</div>
+            <hr>
+            {%for item in articles.featured[1:]%}
+                <div class="c">
+                    <div class="c-t">
+                        <a href="/a/{{item.view.article_id}}">{{item.view.title}}</a>
+                    </div>
+
+                    {%if item.author.status == 200%}
+                    <div class="c-a">
+                        <a href="/author/{{item.author.name}}">{{item.author.name}}</a>
+                    </div>
+                    {%endif%}
+
+                    <div class="c-c" style="color: {{item.metadata.category_colour}}">
+                        <a href="/c/{{item.metadata.category}}">{{item.metadata.category}}</a>
+                    </div>
+                </div>
+                <hr>
+            {%endfor%}
+        </div>
+    </div>
+    <hr>
+
+    <!--Mass Sectioning-->
+    {%for section in articles.sections%}
+        <div class="title">{{section.category}}</div>
+        <div class="m-hs">
+            {%for item in section.articles%}
+                <div class="car-article-frame">
+                    <div class="img-wrapper">
+                        <a href="/a/{{item.view.article_id}}">
+                            <img src="/{{item.view.thumbnail}}" alt="">
+                        </a>
+                    </div>
+                    {%if item.author.status == 200%}
+                    <div class="c-a">
+                        <a href="/author/{{item.author.name}}">{{item.author.name}}</a>
+                    </div>
+                    {%endif%}
+                    <div class="c-author">
+                        <a href="/a/{{item.view.article_id}}">{{item.view.title}}</a>
+                    </div>
+
+                </div>
+            {%endfor%}
+        </div>
+        
+        <br>
+
+    {%endfor%}
+
+</div>
+<script>
+    
+</script>
+{% endblock %}

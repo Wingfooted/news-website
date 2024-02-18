@@ -1,0 +1,1 @@
+('t', 'Article text, this is going to be really short just to test the capability of the footer in a second')
