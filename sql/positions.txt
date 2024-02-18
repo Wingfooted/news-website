@@ -1,0 +1,10 @@
+big - 1
+featured - 4
+latest - 4
+carousel - 4
+category1 - 3
+category2 - 3
+category3 - 3
+category4 - 3
+
+
